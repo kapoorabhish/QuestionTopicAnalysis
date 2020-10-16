@@ -1,4 +1,4 @@
-from flask import Flask, render_template,request,url_for, jsonify
+from flask import Flask, render_template,request,url_for, jsonify, abort
 
 # NLP Packages
 import tensorflow_hub as hub
@@ -11,6 +11,7 @@ from tensorflow.keras.layers import Input, Lambda, Dense
 from tensorflow.keras.models import Model
 import tensorflow.keras.backend as K
 import pickle
+import socket
 
 app = Flask(__name__)
 
@@ -95,7 +96,8 @@ def analyse():
 	response = {
 		"output" : str(result), 
 		"input" : str(rawtext_list),
-        "time" : time.time() - start
+        "time" : time.time() - start,
+        "hostname": socket.gethostname()
 	}
 
 	return jsonify(response), 200
