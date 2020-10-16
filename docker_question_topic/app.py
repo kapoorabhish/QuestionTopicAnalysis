@@ -97,7 +97,7 @@ def analyse():
 		"output" : str(result), 
 		"input" : str(rawtext_list),
         "time" : time.time() - start,
-        "hostname": socket.gethostname()
+        "hostname": socket.gethostname(),
         "comment": "This is a new app version 0.0.2"
 	}
 
