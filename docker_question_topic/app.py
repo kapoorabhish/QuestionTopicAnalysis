@@ -98,6 +98,7 @@ def analyse():
 		"input" : str(rawtext_list),
         "time" : time.time() - start,
         "hostname": socket.gethostname()
+        "comment": "This is a new app version 0.0.2"
 	}
 
 	return jsonify(response), 200
